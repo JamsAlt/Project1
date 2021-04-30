@@ -1,0 +1,453 @@
+--[[
+	Made by jam
+	If you see this it was cracked down or found.
+]]
+
+local LocalPlayer = game.Players.LocalPlayer
+local Character = LocalPlayer.Character
+local Active = false
+local CheckedTools = false
+
+local BTTool = "Push Up"
+local FSTool = "Fist Training"
+local PPTool = "Meditate"
+
+local SimpleGrindCycleSPTS = Instance.new("ScreenGui")
+local Drag = Instance.new("Frame")
+local ChangeFrame = Instance.new("Frame")
+local ApplyButton = Instance.new("TextButton")
+local BTTitle = Instance.new("TextLabel")
+local BTBox = Instance.new("TextBox")
+local FSTitle = Instance.new("TextLabel")
+local PPTitle = Instance.new("TextLabel")
+local ChangeButton1 = Instance.new("TextButton")
+local ChangeButton2 = Instance.new("TextButton")
+local ChangeButton3 = Instance.new("TextButton")
+local FSBox = Instance.new("TextBox")
+local PPBox = Instance.new("TextBox")
+local Title = Instance.new("TextLabel")
+local MainFrame = Instance.new("Frame")
+local StartButton = Instance.new("TextButton")
+local Note = Instance.new("TextLabel")
+local StopButton = Instance.new("TextButton")
+local CreditsButton = Instance.new("TextButton")
+local CreditsFrame = Instance.new("Frame")
+local BackButton = Instance.new("TextButton")
+local CreditsNote = Instance.new("TextLabel")
+local CreditsNote_2 = Instance.new("TextLabel")
+
+SimpleGrindCycleSPTS.Name = "SimpleGrindCycleSPTS"
+SimpleGrindCycleSPTS.Parent = game.CoreGui
+SimpleGrindCycleSPTS.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Drag.Name = "Drag"
+Drag.Parent = SimpleGrindCycleSPTS
+Drag.Active = true
+Drag.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+Drag.BorderColor3 = Color3.fromRGB(42, 42, 42)
+Drag.BorderSizePixel = 0
+Drag.Position = UDim2.new(0.238049746, 0, 0.246346563, 0)
+Drag.Selectable = true
+Drag.Size = UDim2.new(0.558771074, 0, 0.0793319419, 0)
+Drag.Draggable = true
+
+ChangeFrame.Name = "ChangeFrame"
+ChangeFrame.Parent = Drag
+ChangeFrame.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+ChangeFrame.BorderColor3 = Color3.fromRGB(32, 32, 32)
+ChangeFrame.BorderSizePixel = 0
+ChangeFrame.Position = UDim2.new(-0.000726710248, 0, 0.998716652, 0)
+ChangeFrame.Size = UDim2.new(1.00072682, 0, 6.39116526, 0)
+
+ApplyButton.Name = "ApplyButton"
+ApplyButton.Parent = ChangeFrame
+ApplyButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+ApplyButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+ApplyButton.BorderSizePixel = 0
+ApplyButton.Position = UDim2.new(0.326551944, 0, 0.749389768, 0)
+ApplyButton.Size = UDim2.new(0.341939181, 0, 0.164701045, 0)
+ApplyButton.Font = Enum.Font.Cartoon
+ApplyButton.Text = "Apply"
+ApplyButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+ApplyButton.TextScaled = true
+ApplyButton.TextSize = 14.000
+ApplyButton.TextWrapped = true
+ApplyButton.MouseButton1Click:Connect(function()
+	ChangeFrame.Visible = false
+	MainFrame.Visible = true
+end)
+
+BTTitle.Name = "BTTitle"
+BTTitle.Parent = ChangeFrame
+BTTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BTTitle.BackgroundTransparency = 1.000
+BTTitle.BorderColor3 = Color3.fromRGB(255, 255, 255)
+BTTitle.BorderSizePixel = 0
+BTTitle.Position = UDim2.new(0.0683878884, 0, 0.000200799768, 0)
+BTTitle.Size = UDim2.new(0.683878481, 0, 0.0792658925, 0)
+BTTitle.Font = Enum.Font.Cartoon
+BTTitle.Text = "BT(Body Toughness) Position:"
+BTTitle.TextColor3 = Color3.fromRGB(244, 244, 244)
+BTTitle.TextScaled = true
+BTTitle.TextSize = 14.000
+BTTitle.TextWrapped = true
+
+BTBox.Name = "BTBox"
+BTBox.Parent = ChangeFrame
+BTBox.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+BTBox.BorderColor3 = Color3.fromRGB(42, 42, 42)
+BTBox.BorderSizePixel = 0
+BTBox.Position = UDim2.new(0.0683878884, 0, 0.086468026, 0)
+BTBox.Size = UDim2.new(0.683878362, 0, 0.144314215, 0)
+BTBox.Font = Enum.Font.Cartoon
+BTBox.Text = "0,0,0"
+BTBox.TextColor3 = Color3.fromRGB(244, 244, 244)
+BTBox.TextScaled = true
+BTBox.TextSize = 14.000
+BTBox.TextWrapped = true
+
+FSTitle.Name = "FSTitle"
+FSTitle.Parent = ChangeFrame
+FSTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FSTitle.BackgroundTransparency = 1.000
+FSTitle.BorderColor3 = Color3.fromRGB(255, 255, 255)
+FSTitle.BorderSizePixel = 0
+FSTitle.Position = UDim2.new(0.0683878884, 0, 0.218429685, 0)
+FSTitle.Size = UDim2.new(0.683878481, 0, 0.0792658925, 0)
+FSTitle.Font = Enum.Font.Cartoon
+FSTitle.Text = "FS(Fist Strength) Position:"
+FSTitle.TextColor3 = Color3.fromRGB(244, 244, 244)
+FSTitle.TextScaled = true
+FSTitle.TextSize = 14.000
+FSTitle.TextWrapped = true
+
+PPTitle.Name = "PPTitle"
+PPTitle.Parent = ChangeFrame
+PPTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PPTitle.BackgroundTransparency = 1.000
+PPTitle.BorderColor3 = Color3.fromRGB(255, 255, 255)
+PPTitle.BorderSizePixel = 0
+PPTitle.Position = UDim2.new(0.0683878884, 0, 0.44077611, 0)
+PPTitle.Size = UDim2.new(0.683878481, 0, 0.0792658925, 0)
+PPTitle.Font = Enum.Font.Cartoon
+PPTitle.Text = "PP(Psychic Power) Position:"
+PPTitle.TextColor3 = Color3.fromRGB(244, 244, 244)
+PPTitle.TextScaled = true
+PPTitle.TextSize = 14.000
+PPTitle.TextWrapped = true
+
+ChangeButton1.Name = "ChangeButton1"
+ChangeButton1.Parent = ChangeFrame
+ChangeButton1.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+ChangeButton1.BorderColor3 = Color3.fromRGB(42, 42, 42)
+ChangeButton1.BorderSizePixel = 0
+ChangeButton1.Position = UDim2.new(0.801847458, 0, 0.0864680484, 0)
+ChangeButton1.Size = UDim2.new(0.170969591, 0, 0.123525783, 0)
+ChangeButton1.Font = Enum.Font.Cartoon
+ChangeButton1.Text = "Change"
+ChangeButton1.TextColor3 = Color3.fromRGB(244, 244, 244)
+ChangeButton1.TextScaled = true
+ChangeButton1.TextSize = 14.000
+ChangeButton1.TextWrapped = true
+ChangeButton1.MouseButton1Click:Connect(function()
+	print("Not avaible")
+end)
+
+ChangeButton2.Name = "ChangeButton2"
+ChangeButton2.Parent = ChangeFrame
+ChangeButton2.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+ChangeButton2.BorderColor3 = Color3.fromRGB(42, 42, 42)
+ChangeButton2.BorderSizePixel = 0
+ChangeButton2.Position = UDim2.new(0.801847458, 0, 0.304696977, 0)
+ChangeButton2.Size = UDim2.new(0.170969591, 0, 0.123525783, 0)
+ChangeButton2.Font = Enum.Font.Cartoon
+ChangeButton2.Text = "Change"
+ChangeButton2.TextColor3 = Color3.fromRGB(244, 244, 244)
+ChangeButton2.TextScaled = true
+ChangeButton2.TextSize = 14.000
+ChangeButton2.TextWrapped = true
+ChangeButton2.MouseButton1Click:Connect(function()
+	print("Not avaible")
+end)
+
+ChangeButton3.Name = "ChangeButton3"
+ChangeButton3.Parent = ChangeFrame
+ChangeButton3.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+ChangeButton3.BorderColor3 = Color3.fromRGB(42, 42, 42)
+ChangeButton3.BorderSizePixel = 0
+ChangeButton3.Position = UDim2.new(0.801847458, 0, 0.522925854, 0)
+ChangeButton3.Size = UDim2.new(0.170969591, 0, 0.123525783, 0)
+ChangeButton3.Font = Enum.Font.Cartoon
+ChangeButton3.Text = "Change"
+ChangeButton3.TextColor3 = Color3.fromRGB(244, 244, 244)
+ChangeButton3.TextScaled = true
+ChangeButton3.TextSize = 14.000
+ChangeButton3.TextWrapped = true
+ChangeButton3.MouseButton1Click:Connect(function()
+	print("Not avaible")
+end)
+
+FSBox.Name = "FSBox"
+FSBox.Parent = ChangeFrame
+FSBox.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+FSBox.BorderColor3 = Color3.fromRGB(42, 42, 42)
+FSBox.BorderSizePixel = 0
+FSBox.Position = UDim2.new(0.0683878884, 0, 0.304696918, 0)
+FSBox.Size = UDim2.new(0.683878362, 0, 0.144314215, 0)
+FSBox.Font = Enum.Font.Cartoon
+FSBox.Text = "0,0,0"
+FSBox.TextColor3 = Color3.fromRGB(244, 244, 244)
+FSBox.TextScaled = true
+FSBox.TextSize = 14.000
+FSBox.TextWrapped = true
+
+PPBox.Name = "PPBox"
+PPBox.Parent = ChangeFrame
+PPBox.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+PPBox.BorderColor3 = Color3.fromRGB(42, 42, 42)
+PPBox.BorderSizePixel = 0
+PPBox.Position = UDim2.new(0.0683878884, 0, 0.522925794, 0)
+PPBox.Size = UDim2.new(0.683878362, 0, 0.144314215, 0)
+PPBox.Font = Enum.Font.Cartoon
+PPBox.Text = "0,0,0"
+PPBox.TextColor3 = Color3.fromRGB(244, 244, 244)
+PPBox.TextScaled = true
+PPBox.TextSize = 14.000
+PPBox.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = Drag
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.272039175, 0, 0.0789473653, 0)
+Title.Size = UDim2.new(0.453398705, 0, 0.815789461, 0)
+Title.Font = Enum.Font.Cartoon
+Title.Text = "Simple SPTS Cycle Grinder"
+Title.TextColor3 = Color3.fromRGB(244, 244, 244)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = Drag
+MainFrame.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+MainFrame.BorderColor3 = Color3.fromRGB(32, 32, 32)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(-0.000726710248, 0, 0.998716652, 0)
+MainFrame.Size = UDim2.new(1.00072682, 0, 6.39116526, 0)
+MainFrame.Visible = false
+
+StartButton.Name = "StartButton"
+StartButton.Parent = MainFrame
+StartButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+StartButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+StartButton.BorderSizePixel = 0
+StartButton.Position = UDim2.new(0.0512909107, 0, 0.76997745, 0)
+StartButton.Size = UDim2.new(0.341939181, 0, 0.164701045, 0)
+StartButton.Font = Enum.Font.Cartoon
+StartButton.Text = "Start"
+StartButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+StartButton.TextScaled = true
+StartButton.TextSize = 14.000
+StartButton.TextWrapped = true
+StartButton.MouseButton1Click:Connect(function()
+	Active = true
+	print("Started")
+end)
+
+Note.Name = "Note"
+Note.Parent = MainFrame
+Note.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Note.BackgroundTransparency = 1.000
+Note.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Note.BorderSizePixel = 0
+Note.Position = UDim2.new(0.114549674, 0, 0.0825513229, 0)
+Note.Size = UDim2.new(0.769363284, 0, 0.289259702, 0)
+Note.Font = Enum.Font.Cartoon
+Note.Text = "Recommended to use VIP servers if AFK due to people killing you in public servers when you are AFK. (If you cannot afford a VIP server go into smaller servers)"
+Note.TextColor3 = Color3.fromRGB(244, 244, 244)
+Note.TextScaled = true
+Note.TextSize = 14.000
+Note.TextWrapped = true
+
+StopButton.Name = "StopButton"
+StopButton.Parent = MainFrame
+StopButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+StopButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+StopButton.BorderSizePixel = 0
+StopButton.Position = UDim2.new(0.605232418, 0, 0.76997745, 0)
+StopButton.Size = UDim2.new(0.341939181, 0, 0.164701045, 0)
+StopButton.Font = Enum.Font.Cartoon
+StopButton.Text = "Stop"
+StopButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+StopButton.TextScaled = true
+StopButton.TextSize = 14.000
+StopButton.TextWrapped = true
+StopButton.MouseButton1Click:Connect(function()
+	Active = false
+	print("Stopped")
+end)
+
+CreditsButton.Name = "CreditsButton"
+CreditsButton.Parent = MainFrame
+CreditsButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+CreditsButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+CreditsButton.BorderSizePixel = 0
+CreditsButton.Position = UDim2.new(0.328261703, 0, 0.543513536, 0)
+CreditsButton.Size = UDim2.new(0.341939181, 0, 0.164701045, 0)
+CreditsButton.Font = Enum.Font.Cartoon
+CreditsButton.Text = "Credits"
+CreditsButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+CreditsButton.TextScaled = true
+CreditsButton.TextSize = 14.000
+CreditsButton.TextWrapped = true
+CreditsButton.MouseButton1Click:Connect(function()
+	CreditsFrame.Visible = true
+end)
+
+CreditsFrame.Name = "CreditsFrame"
+CreditsFrame.Parent = MainFrame
+CreditsFrame.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+CreditsFrame.BorderColor3 = Color3.fromRGB(32, 32, 32)
+CreditsFrame.BorderSizePixel = 0
+CreditsFrame.Position = UDim2.new(0.157292068, 0, 0.0866689086, 0)
+CreditsFrame.Size = UDim2.new(0.685416043, 0, 0.82634443, 0)
+CreditsFrame.Visible = false
+
+BackButton.Name = "BackButton"
+BackButton.Parent = CreditsFrame
+BackButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+BackButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+BackButton.BorderSizePixel = 0
+BackButton.Position = UDim2.new(0.313202024, 0, 0.752162814, 0)
+BackButton.Size = UDim2.new(0.374366283, 0, 0.152618662, 0)
+BackButton.Font = Enum.Font.Cartoon
+BackButton.Text = "Back"
+BackButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+BackButton.TextScaled = true
+BackButton.TextSize = 14.000
+BackButton.TextWrapped = true
+BackButton.MouseButton1Click:Connect(function()
+	CreditsFrame.Visible = false
+end)
+
+CreditsNote.Name = "CreditsNote"
+CreditsNote.Parent = CreditsFrame
+CreditsNote.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CreditsNote.BackgroundTransparency = 1.000
+CreditsNote.BorderColor3 = Color3.fromRGB(255, 255, 255)
+CreditsNote.BorderSizePixel = 0
+CreditsNote.Position = UDim2.new(0.0796282291, 0, 0.067602843, 0)
+CreditsNote.Size = UDim2.new(0.749408126, 0, 0.199568912, 0)
+CreditsNote.Font = Enum.Font.Cartoon
+CreditsNote.Text = "Made by jam"
+CreditsNote.TextColor3 = Color3.fromRGB(244, 244, 244)
+CreditsNote.TextScaled = true
+CreditsNote.TextSize = 14.000
+CreditsNote.TextWrapped = true
+
+CreditsNote_2.Name = "CreditsNote"
+CreditsNote_2.Parent = CreditsFrame
+CreditsNote_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CreditsNote_2.BackgroundTransparency = 1.000
+CreditsNote_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+CreditsNote_2.BorderSizePixel = 0
+CreditsNote_2.Position = UDim2.new(0.229291722, 0, 0.271898508, 0)
+CreditsNote_2.Size = UDim2.new(0.44918263, 0, 0.0781488493, 0)
+CreditsNote_2.Font = Enum.Font.Cartoon
+CreditsNote_2.Text = "Free Simple SPTS Cycle Grinder"
+CreditsNote_2.TextColor3 = Color3.fromRGB(244, 244, 244)
+CreditsNote_2.TextScaled = true
+CreditsNote_2.TextSize = 14.000
+CreditsNote_2.TextWrapped = true
+
+-- Functioning
+
+function Check()
+	-- BT Tool
+	if LocalPlayer.Backpack:FindFirstChild(BTTool) then
+		print("Found BT Tool")
+	else
+		if Character:FindFirstChild(BTTool) then
+			print("Found BT Tool in Char")
+		else
+			error("Error 404 (Did not find BT Tool")
+		end
+	end
+	--
+
+	-- FS Tool
+	if LocalPlayer.Backpack:FindFirstChild(FSTool) then
+		print("Found FS Tool")
+	else
+		if Character:FindFirstChild(FSTool) then
+			print("Found FS Tool in Char")
+		else
+			error("Error 404 (Did not find FS Tool")
+		end
+	end
+	--
+
+	-- PP Tool
+	if LocalPlayer.Backpack:FindFirstChild(PPTool) then
+		print("Found PP Tool")
+	else
+		if Character:FindFirstChild(PPTool) then
+			print("Found PP Tool in Char")
+		else
+			error("Error 404 (Did not find PP Tool")
+		end
+	end
+	--
+	CheckedTools = true
+end
+
+function BT_Train()
+	Character.HumanoidRootPart.CFrame = CFrame.new(-279, 281, 1007)
+end
+
+function FS_Train()
+	Character.HumanoidRootPart.CFrame = CFrame.new(1379, 9274, 1650)
+	Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(FSTool))
+	wait(1)
+	Character.Humanoid.Jump = true
+	Character:FindFirstChild(FSTool):Activate()
+end
+
+function PP_Train()
+	Character.HumanoidRootPart.CFrame = CFrame.new(-2584, 5517, -496)
+	Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(PPTool))
+end
+
+LocalPlayer.Chatted:Connect(function(Message)
+	if Message == "/e closeg" then
+		SimpleGrindCycleSPTS:Destroy()
+	end
+end)
+
+while wait() do
+	if Active == true then
+		Check()
+		wait()
+		if CheckedTools == true then
+			BT_Train()
+			wait(1.5)
+			FS_Train()
+			wait(1.5)
+			PP_Train()
+			wait(1.5)
+			print("Completed Cycle")
+		else
+			wait()
+		end
+	else
+		wait()
+	end
+end
+
+--[[
+	Made by jam
+	If you see this it was cracked down or found.
+]]
