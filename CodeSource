@@ -1062,6 +1062,12 @@ while wait() do
 			BT_Train()
 			wait(1.5)
 			FS_Train()
+			while wait() do
+				local Character = game.Players.LocalPlayer.Character
+				if Character:FindFirstChild("Fist Training") then
+					Character:FindFirstChild("Fist Training"):Activate()
+				end
+			end
 			wait(1.5)
 			PP_Train()
 			wait(1.5)
