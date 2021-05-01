@@ -1,5 +1,5 @@
 --[[
-	Made by jam
+	Made by jam (AKA temp)
 	If you see this it was cracked down or found.
 ]]
 
@@ -12,19 +12,76 @@ local BTTool = "Push Up"
 local FSTool = "Fist Training"
 local PPTool = "Meditate"
 
+local IceBathLocation = CFrame.new(365, 250, -444)
+local IceBathSelected = false
+local FireBathLocation = CFrame.new(353, 264, -493)
+local FireBathSelected = false
+local IcebergLocation = CFrame.new(1630, 260, 2248)
+local IcebergSelected = false
+local TornadoLocation = CFrame.new(-2298, 977, 1075)
+local TornadoSelected = false
+local VolcanoLocation = CFrame.new(-2025, 714, -1862)
+local VolcanoSelected = false
+local HellFirePitLocation = CFrame.new(-251, 287, 980)
+local HellFirePitSelected = false
+local GreenAcidPoolLocation = CFrame.new(-279, 281, 990)
+local GreenAcidPoolSelected = false
+local RedAcidPoolLocation = CFrame.new(-279, 281, 1008)
+local RedAcidPoolSelected = false
+
+local RockLocation = CFrame.new(412, 271, 980)
+local RockSelected = false
+local CrystalLocation = CFrame.new(-2278, 1943, 1053)
+local CrystalSelected = false
+local BlueGodStarLocation = CFrame.new(1177, 4789, -2294)
+local BlueGodStarSelected = false
+local GreenGodStarLocation = CFrame.new(1380, 9274, 1647)
+local GreenGodStarSelected = false
+local RedGodStarLocation = CFrame.new(-368, 15735, -8)
+local RedGodStarSelected = false
+
+local FirstGrassLawnLocation = CFrame.new(-2526, 5486, -537)
+local FirstGrassLawnSelected = false
+local SecondGrassLawnLocation = CFrame.new(-2561, 5501, -438)
+local SecondGrassLawnSelected = false
+local BridgeLocation = CFrame.new(-2585, 5517, -496)
+local BridgeSelected = false
+local WaterfallLocation = CFrame.new(-2542, 5410, -495)
+local WaterfallSelected = false
+
 local SimpleGrindCycleSPTS = Instance.new("ScreenGui")
 local Drag = Instance.new("Frame")
 local ChangeFrame = Instance.new("Frame")
 local ApplyButton = Instance.new("TextButton")
 local BTTitle = Instance.new("TextLabel")
-local BTBox = Instance.new("TextBox")
 local FSTitle = Instance.new("TextLabel")
 local PPTitle = Instance.new("TextLabel")
 local ChangeButton1 = Instance.new("TextButton")
 local ChangeButton2 = Instance.new("TextButton")
 local ChangeButton3 = Instance.new("TextButton")
-local FSBox = Instance.new("TextBox")
-local PPBox = Instance.new("TextBox")
+local BTBox = Instance.new("TextLabel")
+local FSBox = Instance.new("TextLabel")
+local PPBox = Instance.new("TextLabel")
+local BTFrame = Instance.new("Frame")
+local IceBathButton = Instance.new("TextButton")
+local FireBathButton = Instance.new("TextButton")
+local IcebergButton = Instance.new("TextButton")
+local TornadoButton = Instance.new("TextButton")
+local VolcanoButton = Instance.new("TextButton")
+local HellFirePitButton = Instance.new("TextButton")
+local GreenAcidPoolButton = Instance.new("TextButton")
+local RedAcidPoolButton = Instance.new("TextButton")
+local FSFrame = Instance.new("Frame")
+local RockButton = Instance.new("TextButton")
+local CrystalButton = Instance.new("TextButton")
+local BlueGodStarButton = Instance.new("TextButton")
+local GreenGodStarButton = Instance.new("TextButton")
+local RedGodStarButton = Instance.new("TextButton")
+local PPFrame = Instance.new("Frame")
+local FirstGrassLawnButton = Instance.new("TextButton")
+local SecondGrassLawnButton = Instance.new("TextButton")
+local BridgeButton = Instance.new("TextButton")
+local WaterfallButton = Instance.new("TextButton")
 local Title = Instance.new("TextLabel")
 local MainFrame = Instance.new("Frame")
 local StartButton = Instance.new("TextButton")
@@ -46,9 +103,9 @@ Drag.Active = true
 Drag.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 Drag.BorderColor3 = Color3.fromRGB(42, 42, 42)
 Drag.BorderSizePixel = 0
-Drag.Position = UDim2.new(0.238049746, 0, 0.246346563, 0)
+Drag.Position = UDim2.new(0.00507894158, 0, 0.580794036, 0)
 Drag.Selectable = true
-Drag.Size = UDim2.new(0.558771074, 0, 0.0793319419, 0)
+Drag.Size = UDim2.new(0.277700335, 0, 0.0542797484, 0)
 Drag.Draggable = true
 
 ChangeFrame.Name = "ChangeFrame"
@@ -91,20 +148,6 @@ BTTitle.TextColor3 = Color3.fromRGB(244, 244, 244)
 BTTitle.TextScaled = true
 BTTitle.TextSize = 14.000
 BTTitle.TextWrapped = true
-
-BTBox.Name = "BTBox"
-BTBox.Parent = ChangeFrame
-BTBox.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
-BTBox.BorderColor3 = Color3.fromRGB(42, 42, 42)
-BTBox.BorderSizePixel = 0
-BTBox.Position = UDim2.new(0.0683878884, 0, 0.086468026, 0)
-BTBox.Size = UDim2.new(0.683878362, 0, 0.144314215, 0)
-BTBox.Font = Enum.Font.Cartoon
-BTBox.Text = "0,0,0"
-BTBox.TextColor3 = Color3.fromRGB(244, 244, 244)
-BTBox.TextScaled = true
-BTBox.TextSize = 14.000
-BTBox.TextWrapped = true
 
 FSTitle.Name = "FSTitle"
 FSTitle.Parent = ChangeFrame
@@ -150,7 +193,9 @@ ChangeButton1.TextScaled = true
 ChangeButton1.TextSize = 14.000
 ChangeButton1.TextWrapped = true
 ChangeButton1.MouseButton1Click:Connect(function()
-	print("Not avaible")
+	BTFrame.Visible = true
+	FSFrame.Visible = false
+	PPFrame.Visible = false
 end)
 
 ChangeButton2.Name = "ChangeButton2"
@@ -167,7 +212,9 @@ ChangeButton2.TextScaled = true
 ChangeButton2.TextSize = 14.000
 ChangeButton2.TextWrapped = true
 ChangeButton2.MouseButton1Click:Connect(function()
-	print("Not avaible")
+	FSFrame.Visible = true
+	BTFrame.Visible = false
+	PPFrame.Visible = false
 end)
 
 ChangeButton3.Name = "ChangeButton3"
@@ -184,18 +231,34 @@ ChangeButton3.TextScaled = true
 ChangeButton3.TextSize = 14.000
 ChangeButton3.TextWrapped = true
 ChangeButton3.MouseButton1Click:Connect(function()
-	print("Not avaible")
+	PPFrame.Visible = true
+	BTFrame.Visible = false
+	FSFrame.Visible = false
 end)
+
+BTBox.Name = "BTBox"
+BTBox.Parent = ChangeFrame
+BTBox.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+BTBox.BorderColor3 = Color3.fromRGB(42, 42, 42)
+BTBox.BorderSizePixel = 0
+BTBox.Position = UDim2.new(0.0683879405, 0, 0.0784338191, 0)
+BTBox.Size = UDim2.new(0.683878481, 0, 0.139995918, 0)
+BTBox.Font = Enum.Font.Cartoon
+BTBox.Text = "Unknown"
+BTBox.TextColor3 = Color3.fromRGB(244, 244, 244)
+BTBox.TextScaled = true
+BTBox.TextSize = 14.000
+BTBox.TextWrapped = true
 
 FSBox.Name = "FSBox"
 FSBox.Parent = ChangeFrame
 FSBox.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 FSBox.BorderColor3 = Color3.fromRGB(42, 42, 42)
 FSBox.BorderSizePixel = 0
-FSBox.Position = UDim2.new(0.0683878884, 0, 0.304696918, 0)
-FSBox.Size = UDim2.new(0.683878362, 0, 0.144314215, 0)
+FSBox.Position = UDim2.new(0.0683879405, 0, 0.301096946, 0)
+FSBox.Size = UDim2.new(0.683878481, 0, 0.139995918, 0)
 FSBox.Font = Enum.Font.Cartoon
-FSBox.Text = "0,0,0"
+FSBox.Text = "Unknown"
 FSBox.TextColor3 = Color3.fromRGB(244, 244, 244)
 FSBox.TextScaled = true
 FSBox.TextSize = 14.000
@@ -206,14 +269,469 @@ PPBox.Parent = ChangeFrame
 PPBox.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 PPBox.BorderColor3 = Color3.fromRGB(42, 42, 42)
 PPBox.BorderSizePixel = 0
-PPBox.Position = UDim2.new(0.0683878884, 0, 0.522925794, 0)
-PPBox.Size = UDim2.new(0.683878362, 0, 0.144314215, 0)
+PPBox.Position = UDim2.new(0.0683879405, 0, 0.517742157, 0)
+PPBox.Size = UDim2.new(0.683878481, 0, 0.139995918, 0)
 PPBox.Font = Enum.Font.Cartoon
-PPBox.Text = "0,0,0"
+PPBox.Text = "Unknown"
 PPBox.TextColor3 = Color3.fromRGB(244, 244, 244)
 PPBox.TextScaled = true
 PPBox.TextSize = 14.000
 PPBox.TextWrapped = true
+
+BTFrame.Name = "BTFrame"
+BTFrame.Parent = ChangeFrame
+BTFrame.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+BTFrame.BorderColor3 = Color3.fromRGB(32, 32, 32)
+BTFrame.BorderSizePixel = 0
+BTFrame.Position = UDim2.new(0.996914148, 0, 0.0234383047, 0)
+BTFrame.Size = UDim2.new(0.861488521, 0, 0.908706188, 0)
+BTFrame.Visible = false
+
+IceBathButton.Name = "IceBathButton"
+IceBathButton.Parent = BTFrame
+IceBathButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+IceBathButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+IceBathButton.BorderSizePixel = 0
+IceBathButton.Position = UDim2.new(0, 0, 0.0275980681, 0)
+IceBathButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+IceBathButton.Font = Enum.Font.Cartoon
+IceBathButton.Text = "Ice Bath (100 BT)"
+IceBathButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+IceBathButton.TextScaled = true
+IceBathButton.TextSize = 14.000
+IceBathButton.TextWrapped = true
+IceBathButton.MouseButton1Click:Connect(function()
+	IceBathSelected = true
+	
+	FireBathSelected = false
+	IcebergSelected = false
+	TornadoSelected = false
+	VolcanoSelected = false
+	HellFirePitSelected = false
+	GreenAcidPoolSelected = false
+	RedAcidPoolSelected = false
+	
+	BTBox.Text = "Ice Bath (100 BT)"
+end)
+
+FireBathButton.Name = "FireBathButton"
+FireBathButton.Parent = BTFrame
+FireBathButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+FireBathButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+FireBathButton.BorderSizePixel = 0
+FireBathButton.Position = UDim2.new(0, 0, 0.145526439, 0)
+FireBathButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+FireBathButton.Font = Enum.Font.Cartoon
+FireBathButton.Text = "Fire Bath (10K BT)"
+FireBathButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+FireBathButton.TextScaled = true
+FireBathButton.TextSize = 14.000
+FireBathButton.TextWrapped = true
+FireBathButton.MouseButton1Click:Connect(function()
+	FireBathSelected = true
+	
+	IceBathSelected = false
+	IcebergSelected = false
+	TornadoSelected = false
+	VolcanoSelected = false
+	HellFirePitSelected = false
+	GreenAcidPoolSelected = false
+	RedAcidPoolSelected = false
+	
+	BTBox.Text = "Fire Bath (10K BT)"
+end)
+
+IcebergButton.Name = "IcebergButton"
+IcebergButton.Parent = BTFrame
+IcebergButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+IcebergButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+IcebergButton.BorderSizePixel = 0
+IcebergButton.Position = UDim2.new(0, 0, 0.268452734, 0)
+IcebergButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+IcebergButton.Font = Enum.Font.Cartoon
+IcebergButton.Text = "Iceberg (100K BT)"
+IcebergButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+IcebergButton.TextScaled = true
+IcebergButton.TextSize = 14.000
+IcebergButton.TextWrapped = true
+IcebergButton.MouseButton1Click:Connect(function()
+	IcebergSelected = true
+	
+	IceBathSelected = false
+	FireBathSelected = false
+	TornadoSelected = false
+	VolcanoSelected = false
+	HellFirePitSelected = false
+	GreenAcidPoolSelected = false
+	RedAcidPoolSelected = false
+	
+	BTBox.Text = "Iceberg (100K BT)"
+end)
+
+TornadoButton.Name = "TornadoButton"
+TornadoButton.Parent = BTFrame
+TornadoButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+TornadoButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+TornadoButton.BorderSizePixel = 0
+TornadoButton.Position = UDim2.new(0, 0, 0.393402159, 0)
+TornadoButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+TornadoButton.Font = Enum.Font.Cartoon
+TornadoButton.Text = "Tornado (1M BT)"
+TornadoButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+TornadoButton.TextScaled = true
+TornadoButton.TextSize = 14.000
+TornadoButton.TextWrapped = true
+TornadoButton.MouseButton1Click:Connect(function()
+	TornadoSelected = true
+	
+	IceBathSelected = false
+	FireBathSelected = false
+	IcebergSelected = false
+	VolcanoSelected = false
+	HellFirePitSelected = false
+	GreenAcidPoolSelected = false
+	RedAcidPoolSelected = false
+	
+	BTBox.Text = "Tornado (1M BT)"
+end)
+
+VolcanoButton.Name = "VolcanoButton"
+VolcanoButton.Parent = BTFrame
+VolcanoButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+VolcanoButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+VolcanoButton.BorderSizePixel = 0
+VolcanoButton.Position = UDim2.new(0, 0, 0.508382976, 0)
+VolcanoButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+VolcanoButton.Font = Enum.Font.Cartoon
+VolcanoButton.Text = "Volcano (10M BT)"
+VolcanoButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+VolcanoButton.TextScaled = true
+VolcanoButton.TextSize = 14.000
+VolcanoButton.TextWrapped = true
+VolcanoButton.MouseButton1Click:Connect(function()
+	VolcanoSelected = true
+	
+	IceBathSelected = false
+	FireBathSelected = false
+	IcebergSelected = false
+	TornadoSelected = false
+	HellFirePitSelected = false
+	GreenAcidPoolSelected = false
+	RedAcidPoolSelected = false
+	
+	BTBox.Text = "Volcano (10M BT)"
+end)
+
+HellFirePitButton.Name = "HellFirePitButton"
+HellFirePitButton.Parent = BTFrame
+HellFirePitButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+HellFirePitButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+HellFirePitButton.BorderSizePixel = 0
+HellFirePitButton.Position = UDim2.new(0, 0, 0.621775627, 0)
+HellFirePitButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+HellFirePitButton.Font = Enum.Font.Cartoon
+HellFirePitButton.Text = "Hell Fire Pit (1B BT)"
+HellFirePitButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+HellFirePitButton.TextScaled = true
+HellFirePitButton.TextSize = 14.000
+HellFirePitButton.TextWrapped = true
+HellFirePitButton.MouseButton1Click:Connect(function()
+	HellFirePitSelected = true
+	
+	IceBathSelected = false
+	FireBathSelected = false
+	IcebergSelected = false
+	TornadoSelected = false
+	VolcanoSelected = false
+	GreenAcidPoolSelected = false
+	RedAcidPoolSelected = false
+	
+	BTBox.Text = "Hell Fire Pit (1B BT)"
+end)
+
+GreenAcidPoolButton.Name = "GreenAcidPoolButton"
+GreenAcidPoolButton.Parent = BTFrame
+GreenAcidPoolButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+GreenAcidPoolButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+GreenAcidPoolButton.BorderSizePixel = 0
+GreenAcidPoolButton.Position = UDim2.new(0, 0, 0.737436175, 0)
+GreenAcidPoolButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+GreenAcidPoolButton.Font = Enum.Font.Cartoon
+GreenAcidPoolButton.Text = "Green Acid Pool (100B BT)"
+GreenAcidPoolButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+GreenAcidPoolButton.TextScaled = true
+GreenAcidPoolButton.TextSize = 14.000
+GreenAcidPoolButton.TextWrapped = true
+GreenAcidPoolButton.MouseButton1Click:Connect(function()
+	GreenAcidPoolSelected = true
+	
+	IceBathSelected = false
+	FireBathSelected = false
+	IcebergSelected = false
+	TornadoSelected = false
+	VolcanoSelected = false
+	HellFirePitSelected = false
+	RedAcidPoolSelected = false
+	
+	BTBox.Text = "Green Acid Pool (100B BT)"
+end)
+
+RedAcidPoolButton.Name = "RedAcidPoolButton"
+RedAcidPoolButton.Parent = BTFrame
+RedAcidPoolButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+RedAcidPoolButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+RedAcidPoolButton.BorderSizePixel = 0
+RedAcidPoolButton.Position = UDim2.new(0, 0, 0.855364561, 0)
+RedAcidPoolButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+RedAcidPoolButton.Font = Enum.Font.Cartoon
+RedAcidPoolButton.Text = "Red Acid Pool (10T BT)"
+RedAcidPoolButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+RedAcidPoolButton.TextScaled = true
+RedAcidPoolButton.TextSize = 14.000
+RedAcidPoolButton.TextWrapped = true
+RedAcidPoolButton.MouseButton1Click:Connect(function()
+	RedAcidPoolSelected = true
+	
+	IceBathSelected = false
+	FireBathSelected = false
+	IcebergSelected = false
+	TornadoSelected = false
+	VolcanoSelected = false
+	HellFirePitSelected = false
+	GreenAcidPoolSelected = false
+	
+	BTBox.Text = "Red Acid Pool (10T BT)"
+end)
+
+FSFrame.Name = "FSFrame"
+FSFrame.Parent = ChangeFrame
+FSFrame.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+FSFrame.BorderColor3 = Color3.fromRGB(32, 32, 32)
+FSFrame.BorderSizePixel = 0
+FSFrame.Position = UDim2.new(0.996999979, 0, 0.023, 0)
+FSFrame.Size = UDim2.new(0.863121152, 0, 0.907629192, 0)
+FSFrame.Visible = false
+
+RockButton.Name = "RockButton"
+RockButton.Parent = FSFrame
+RockButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+RockButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+RockButton.BorderSizePixel = 0
+RockButton.Position = UDim2.new(0, 0, 0.0275980681, 0)
+RockButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+RockButton.Font = Enum.Font.Cartoon
+RockButton.Text = "Rock (0 FS)"
+RockButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+RockButton.TextScaled = true
+RockButton.TextSize = 14.000
+RockButton.TextWrapped = true
+RockButton.MouseButton1Click:Connect(function()
+	RockSelected = true
+	
+	CrystalSelected = false
+	BlueGodStarSelected = false
+	GreenGodStarSelected = false
+	RedGodStarSelected = false
+	
+	FSBox.Text = "Rock (0 FS)"
+end)
+
+CrystalButton.Name = "CrystalButton"
+CrystalButton.Parent = FSFrame
+CrystalButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+CrystalButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+CrystalButton.BorderSizePixel = 0
+CrystalButton.Position = UDim2.new(0, 0, 0.145526439, 0)
+CrystalButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+CrystalButton.Font = Enum.Font.Cartoon
+CrystalButton.Text = "Crystal (Need fly)"
+CrystalButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+CrystalButton.TextScaled = true
+CrystalButton.TextSize = 14.000
+CrystalButton.TextWrapped = true
+CrystalButton.MouseButton1Click:Connect(function()
+	CrystalSelected = true
+	
+	RockSelected = false
+	BlueGodStarSelected = false
+	GreenGodStarSelected = false
+	RedGodStarSelected = false
+	
+	FSBox.Text = "Crystal (Flying Required)"
+end)
+
+BlueGodStarButton.Name = "BlueGodStarButton"
+BlueGodStarButton.Parent = FSFrame
+BlueGodStarButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+BlueGodStarButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+BlueGodStarButton.BorderSizePixel = 0
+BlueGodStarButton.Position = UDim2.new(0, 0, 0.268452734, 0)
+BlueGodStarButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+BlueGodStarButton.Font = Enum.Font.Cartoon
+BlueGodStarButton.Text = "Blue God Star (1B FS)"
+BlueGodStarButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+BlueGodStarButton.TextScaled = true
+BlueGodStarButton.TextSize = 14.000
+BlueGodStarButton.TextWrapped = true
+BlueGodStarButton.MouseButton1Click:Connect(function()
+	BlueGodStarSelected = true
+	
+	CrystalSelected = false
+	RockSelected = false
+	GreenGodStarSelected = false
+	RedGodStarSelected = false
+	
+	FSBox.Text = "Blue God Star (1B FS)"
+end)
+
+GreenGodStarButton.Name = "GreenGodStarButton"
+GreenGodStarButton.Parent = FSFrame
+GreenGodStarButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+GreenGodStarButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+GreenGodStarButton.BorderSizePixel = 0
+GreenGodStarButton.Position = UDim2.new(0, 0, 0.393402159, 0)
+GreenGodStarButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+GreenGodStarButton.Font = Enum.Font.Cartoon
+GreenGodStarButton.Text = "Green God Star (100B FS)"
+GreenGodStarButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+GreenGodStarButton.TextScaled = true
+GreenGodStarButton.TextSize = 14.000
+GreenGodStarButton.TextWrapped = true
+GreenGodStarButton.MouseButton1Click:Connect(function()
+	GreenGodStarSelected = true
+	
+	RockSelected = false
+	CrystalSelected = false
+	BlueGodStarSelected = false
+	RedGodStarSelected = false
+	
+	FSBox.Text = "Green God Star (100B FS)"
+end)
+
+RedGodStarButton.Name = "RedGodStarButton"
+RedGodStarButton.Parent = FSFrame
+RedGodStarButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+RedGodStarButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+RedGodStarButton.BorderSizePixel = 0
+RedGodStarButton.Position = UDim2.new(0, 0, 0.508382976, 0)
+RedGodStarButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+RedGodStarButton.Font = Enum.Font.Cartoon
+RedGodStarButton.Text = "Red God Star (10T FS)"
+RedGodStarButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+RedGodStarButton.TextScaled = true
+RedGodStarButton.TextSize = 14.000
+RedGodStarButton.TextWrapped = true
+RedGodStarButton.MouseButton1Click:Connect(function()
+	RedGodStarSelected = true
+	
+	RockSelected = false
+	CrystalSelected = false
+	BlueGodStarSelected = false
+	GreenGodStarSelected = false
+	
+	FSBox.Text = "Red God Star (10T FS)"
+end)
+
+PPFrame.Name = "PPFrame"
+PPFrame.Parent = ChangeFrame
+PPFrame.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+PPFrame.BorderColor3 = Color3.fromRGB(32, 32, 32)
+PPFrame.BorderSizePixel = 0
+PPFrame.Position = UDim2.new(0.996999979, 0, 0.023, 0)
+PPFrame.Size = UDim2.new(0.863121152, 0, 0.907514215, 0)
+PPFrame.Visible = false
+
+FirstGrassLawnButton.Name = "FirstGrassLawnButton"
+FirstGrassLawnButton.Parent = PPFrame
+FirstGrassLawnButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+FirstGrassLawnButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+FirstGrassLawnButton.BorderSizePixel = 0
+FirstGrassLawnButton.Position = UDim2.new(0, 0, 0.0275980681, 0)
+FirstGrassLawnButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+FirstGrassLawnButton.Font = Enum.Font.Cartoon
+FirstGrassLawnButton.Text = "First Grass Lawn (1M PP)"
+FirstGrassLawnButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+FirstGrassLawnButton.TextScaled = true
+FirstGrassLawnButton.TextSize = 14.000
+FirstGrassLawnButton.TextWrapped = true
+FirstGrassLawnButton.MouseButton1Click:Connect(function()
+	FirstGrassLawnSelected = true
+	
+	SecondGrassLawnSelected = false
+	BridgeSelected = false
+	WaterfallSelected = false
+	
+	PPBox.Text = "First Grass Lawn (1M PP)"
+end)
+--666 devils are real yes im satanic
+SecondGrassLawnButton.Name = "SecondGrassLawnButton"
+SecondGrassLawnButton.Parent = PPFrame
+SecondGrassLawnButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+SecondGrassLawnButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+SecondGrassLawnButton.BorderSizePixel = 0
+SecondGrassLawnButton.Position = UDim2.new(0, 0, 0.145526439, 0)
+SecondGrassLawnButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+SecondGrassLawnButton.Font = Enum.Font.Cartoon
+SecondGrassLawnButton.Text = "Second Grass Lawn (1B PP)"
+SecondGrassLawnButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+SecondGrassLawnButton.TextScaled = true
+SecondGrassLawnButton.TextSize = 14.000
+SecondGrassLawnButton.TextWrapped = true
+SecondGrassLawnButton.MouseButton1Click:Connect(function()
+	SecondGrassLawnSelected = true
+	
+	FirstGrassLawnSelected = false
+	BridgeSelected = false
+	WaterfallSelected = false
+	
+	PPBox.Text = "Second Grass Lawn (1B PP)"
+end)
+
+BridgeButton.Name = "BridgeButton"
+BridgeButton.Parent = PPFrame
+BridgeButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+BridgeButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+BridgeButton.BorderSizePixel = 0
+BridgeButton.Position = UDim2.new(0, 0, 0.268452734, 0)
+BridgeButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+BridgeButton.Font = Enum.Font.Cartoon
+BridgeButton.Text = "Bridge (1T PP)"
+BridgeButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+BridgeButton.TextScaled = true
+BridgeButton.TextSize = 14.000
+BridgeButton.TextWrapped = true -- 666
+BridgeButton.MouseButton1Click:Connect(function()
+	BridgeSelected = true
+	
+	SecondGrassLawnSelected = false
+	FirstGrassLawnSelected = false
+	WaterfallSelected = false
+	
+	PPBox.Text = "Bridge (1T PP)"
+end)
+
+WaterfallButton.Name = "WaterfallButton"
+WaterfallButton.Parent = PPFrame
+WaterfallButton.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+WaterfallButton.BorderColor3 = Color3.fromRGB(42, 42, 42)
+WaterfallButton.BorderSizePixel = 0
+WaterfallButton.Position = UDim2.new(0, 0, 0.393402159, 0)
+WaterfallButton.Size = UDim2.new(1, 0, 0.0916955918, 0)
+WaterfallButton.Font = Enum.Font.Cartoon
+WaterfallButton.Text = "Waterfall (1Qa PP)"
+WaterfallButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+WaterfallButton.TextScaled = true
+WaterfallButton.TextSize = 14.000
+WaterfallButton.TextWrapped = true
+WaterfallButton.MouseButton1Click:Connect(function()
+	WaterfallSelected = true
+	
+	SecondGrassLawnSelected = false
+	FirstGrassLawnSelected = false
+	BridgeSelected = false
+	
+	PPBox.Text = "Waterfall (1Qa PP)"
+end)
 
 Title.Name = "Title"
 Title.Parent = Drag
@@ -254,7 +772,7 @@ StartButton.TextSize = 14.000
 StartButton.TextWrapped = true
 StartButton.MouseButton1Click:Connect(function()
 	Active = true
-	print("Started")
+	print("Started grind cycle")
 end)
 
 Note.Name = "Note"
@@ -266,7 +784,7 @@ Note.BorderSizePixel = 0
 Note.Position = UDim2.new(0.114549674, 0, 0.0825513229, 0)
 Note.Size = UDim2.new(0.769363284, 0, 0.289259702, 0)
 Note.Font = Enum.Font.Cartoon
-Note.Text = "Recommended to use VIP servers if AFK due to people killing you in public servers when you are AFK. (If you cannot afford a VIP server go into smaller servers)"
+Note.Text = "Recommend to use in VIP servers or small servers. If you die you will have to respawn and start again."
 Note.TextColor3 = Color3.fromRGB(244, 244, 244)
 Note.TextScaled = true
 Note.TextSize = 14.000
@@ -287,7 +805,7 @@ StopButton.TextSize = 14.000
 StopButton.TextWrapped = true
 StopButton.MouseButton1Click:Connect(function()
 	Active = false
-	print("Stopped")
+	print("Stopped grind cycle")
 end)
 
 CreditsButton.Name = "CreditsButton"
@@ -363,7 +881,7 @@ CreditsNote_2.TextScaled = true
 CreditsNote_2.TextSize = 14.000
 CreditsNote_2.TextWrapped = true
 
--- Functioning
+-- Functions
 
 function Check()
 	-- BT Tool
@@ -405,27 +923,136 @@ function Check()
 end
 
 function BT_Train()
-	Character.HumanoidRootPart.CFrame = CFrame.new(-279, 281, 1007)
+	-- Find which BT training place
+	
+	if IceBathSelected == true then
+		Character.HumanoidRootPart.CFrame = IceBathLocation
+	end
+	
+	if FireBathSelected == true then
+		Character.HumanoidRootPart.CFrame = FireBathLocation
+	end
+	
+	if IcebergSelected == true then
+		Character.HumanoidRootPart.CFrame = IcebergLocation
+	end
+	
+	if TornadoSelected == true then
+		Character.HumanoidRootPart.CFrame = TornadoLocation
+	end
+	
+	if VolcanoSelected == true then
+		Character.HumanoidRootPart.CFrame = VolcanoLocation
+	end
+	
+	if HellFirePitSelected == true then
+		Character.HumanoidRootPart.CFrame = HellFirePitLocation
+	end
+	
+	if GreenAcidPoolSelected == true then
+		Character.HumanoidRootPart.CFrame = GreenAcidPoolLocation
+	end
+	
+	if RedAcidPoolSelected == true then
+		Character.HumanoidRootPart.CFrame = RedAcidPoolLocation
+	end
+	--
 end
 
 function FS_Train()
-	Character.HumanoidRootPart.CFrame = CFrame.new(1379, 9274, 1650)
-	Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(FSTool))
-	wait(1)
-	Character.Humanoid.Jump = true
-	Character:FindFirstChild(FSTool):Activate()
+	-- Find which FS training place
+	
+	if RockSelected == true then
+		Character.HumanoidRootPart.CFrame = RockLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(FSTool))
+		wait(1)
+		Character.Humanoid.Jump = true
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+	end
+	
+	if CrystalSelected == true then
+		Character.HumanoidRootPart.CFrame = CrystalLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(FSTool))
+		wait(1)
+		Character.Humanoid.Jump = true
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+	end
+	
+	if BlueGodStarSelected == true then
+		Character.HumanoidRootPart.CFrame = BlueGodStarLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(FSTool))
+		wait(1)
+		Character.Humanoid.Jump = true
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+	end
+	
+	if GreenGodStarSelected == true then
+		Character.HumanoidRootPart.CFrame = GreenGodStarLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(FSTool))
+		wait(1)
+		Character.Humanoid.Jump = true
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+	end
+	
+	if RedGodStarSelected == true then
+		Character.HumanoidRootPart.CFrame = RedGodStarLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(FSTool))
+		wait(1)
+		Character.Humanoid.Jump = true
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+		Character:FindFirstChild(FSTool):Activate()
+	end
+	--
 end
 
 function PP_Train()
-	Character.HumanoidRootPart.CFrame = CFrame.new(-2584, 5517, -496)
-	Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(PPTool))
-end
-
-LocalPlayer.Chatted:Connect(function(Message)
-	if Message == "/e closeg" then
-		SimpleGrindCycleSPTS:Destroy()
+	-- Find which PP training place
+	
+	if FirstGrassLawnSelected == true then
+		Character.HumanoidRootPart.CFrame = FirstGrassLawnLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(PPTool))
 	end
-end)
+	
+	if SecondGrassLawnSelected == true then
+		Character.HumanoidRootPart.CFrame = SecondGrassLawnLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(PPTool))
+	end
+	
+	if BridgeSelected == true then
+		Character.HumanoidRootPart.CFrame = BridgeLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(PPTool))
+	end
+	
+	if WaterfallSelected == true then
+		Character.HumanoidRootPart.CFrame = WaterfallLocation
+		Character.Humanoid:EquipTool(LocalPlayer.Backpack:FindFirstChild(PPTool))
+	end
+	--
+end
 
 while wait() do
 	if Active == true then
@@ -448,6 +1075,6 @@ while wait() do
 end
 
 --[[
-	Made by jam
+	Made by jam (AKA temp)
 	If you see this it was cracked down or found.
 ]]
