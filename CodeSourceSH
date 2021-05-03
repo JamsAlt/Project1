@@ -11,7 +11,7 @@
 
 local LocalPlayer = game.Players.LocalPlayer
 local Character = LocalPlayer.Character
-local Active = Instance.new("BoolValue")
+local Active = false
 local CheckedTools = false
 
 local BTTool = "Push Up"
@@ -112,10 +112,6 @@ local Title_2 = Instance.new("TextLabel")
 if SimpleGrindCycleSPTS:FindFirstChild("Active") then
 	SimpleGrindCycleSPTS:FindFirstChild("Active"):Destroy()
 end
-
-Active.Name = "Active"
-Active.Parent = SimpleGrindCycleSPTS
-Active = false
 
 SimpleGrindCycleSPTS.Name = "SimpleGrindCycleSPTS"
 SimpleGrindCycleSPTS.Parent = game.CoreGui
@@ -795,7 +791,7 @@ StartButton.TextScaled = true
 StartButton.TextSize = 14.000
 StartButton.TextWrapped = true
 StartButton.MouseButton1Click:Connect(function()
-	Active.Value = true
+	Active = true
 	print("Started grind cycle")
 end)
 
@@ -828,7 +824,7 @@ StopButton.TextScaled = true
 StopButton.TextSize = 14.000
 StopButton.TextWrapped = true
 StopButton.MouseButton1Click:Connect(function()
-	Active.Value = false
+	Active = false
 	print("Stopped grind cycle")
 end)
 
@@ -906,7 +902,7 @@ CreditsNote_2.TextSize = 14.000
 CreditsNote_2.TextWrapped = true
 
 SimpleHubPosition.Name = "SimpleHubPosition"
-SimpleHubPosition.Parent = Drag
+SimpleHubPosition.Parent = SimpleGrindCycleSPTS
 SimpleHubPosition.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 SimpleHubPosition.BackgroundTransparency = 1.000
 SimpleHubPosition.BorderColor3 = Color3.fromRGB(255, 255, 255)
@@ -1222,8 +1218,8 @@ function PP_Train()
 end
 
 while wait() do
-	SimpleHubPosition.Text = "XYZ: "..Character.HumanoidRootPart.Position
-	if Active.Value == true then
+	SimpleHubPosition.Text = "XYZ: "..Character.HumanoidRootPart.CFrame
+	if Active = true then
 		Check()
 		wait()
 		if CheckedTools == true then
