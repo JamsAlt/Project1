@@ -4,9 +4,6 @@
 	
 	If you see this it was found or cracked down.
 	
-	Main Code:
-	loadstring(game:HttpGet(('https://raw.githubusercontent.com/Temmpp/SimpleSPTSCycleGrinder/main/UpdaterCode'),true))()
-	
 ]]
 
 local LocalPlayer = game.Players.LocalPlayer
