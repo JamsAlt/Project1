@@ -1215,8 +1215,8 @@ function PP_Train()
 end
 
 while wait() do
-	SimpleHubPosition.Text = "XYZ: "..Character.HumanoidRootPart.CFrame
-	if Active = true then
+	SimpleHubPosition.Text = "XYZ: "..Character.HumanoidRootPart.Position
+	if Active == true then
 		Check()
 		wait()
 		if CheckedTools == true then
